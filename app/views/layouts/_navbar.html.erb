@@ -1,0 +1,19 @@
+<div class="w-full h-16 bg-gray-800">
+  <div class="h-full max-w-5xl w-full mx-auto flex justify-between items-center">
+    <%= link_to "/", class: "flex items-center" do %>
+      <%= inline_svg_tag "two-tickets", class: "w-12 fill-indigo-100" %>
+      <span class="text-xl text-gray-100 ml-3">
+        Ticket Box
+      </span>
+    <% end %>
+    <div data-controller="dropdown" class="relative">
+      <div data-action="click->dropdown#toggle" class="cursor-pointer w-10 h-10 rounded-full bg-gray-600 text-gray-100 flex items-center justify-center select-none" >
+        <%= current_user.username.split(/\W/).collect {|name| name.chars[0] }.first(3).join %>
+      </div>
+
+      <div class="w-56 h-56 bg-gray-600 rounded-sm shadow-sm shadow-gray-600 p-3 hidden absolute top-12 -left-6" data-dropdown-target="menu">
+        <%= link_to "Sign out", signout_path, class: "text-xl text-gray-100", data: { turbo_method: :delete } %>
+      </div>
+    </div>
+  </div>
+</div>

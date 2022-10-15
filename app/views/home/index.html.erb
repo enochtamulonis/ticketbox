@@ -1,0 +1,12 @@
+<% if current_user %>
+  <h1 class="text-4xl text-gray-100"> Welcome to Ticket Box </h1>
+<% else %>
+  <div>
+    <h1 class="font-bold text-6xl text-gray-100">Ticket Box</h1>
+    <p class="text-xl text-gray-100">Bid on actionable tickets that are able to be completed and tracked </p>
+    <div class="flex items-center mt-8">
+      <%= link_to "Sign in", auth_path, class: "text-xl text-gray-100" %>
+      <%= link_to "Create account", registration_path, class: "text-xl text-gray-100 bg-gradient-to-r from-indigo-400 to-purple-400 p-2 rounded ml-4" %>
+    </div>
+  </div>
+<% end %>
